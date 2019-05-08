@@ -21,7 +21,11 @@ class RouteModel : public Model {
 
         Node(){}
         Node(int idx, RouteModel * search_model, Model::Node node) : Model::Node(node), parent_model(search_model), index(idx) {}
-      
+
+        float distance(Node n) const {
+          return std::sqrt(std::pow(x-n.x, 2.0)+ std::pow(y-n.y, 2.0));
+        }
+
       private:
         // Add private Node variables and methods here.
         int index;
