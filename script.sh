@@ -1,5 +1,4 @@
-(cd build/ && cmake ..)
+(cd build/ && cmake .. && make)
 
-make
 
-bin/CppND-Route-Planning-Project -f map.osm
+#bin/CppND-Route-Planning-Project -f map.osm
