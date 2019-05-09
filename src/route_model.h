@@ -25,7 +25,7 @@ class RouteModel : public Model {
         float distance(Node n) const {
           return std::sqrt(std::pow(x-n.x, 2.0)+ std::pow(y-n.y, 2.0));
         }
-
+      
       private:
         // Add private Node variables and methods here.
         int index;
@@ -41,6 +41,8 @@ class RouteModel : public Model {
       return m_Nodes;
     }
     auto &GetNodeToRoadMap() { return node_to_road; }
+
+    const RouteModel::Node &FindClosestNode(float x, float y);
   private:
     // Add private RouteModel variables and methods here.
     std::vector<Node> m_Nodes;
