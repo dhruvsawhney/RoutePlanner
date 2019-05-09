@@ -47,7 +47,7 @@ RouteModel::Node const* RouteModel::Node::FindNeighbor(std::vector<int> node_ind
   return bestNode;
 }
 
-const RouteModel::Node& RouteModel::FindClosestNode(float x, float y){
+RouteModel::Node& RouteModel::FindClosestNode(float x, float y){
 
    RouteModel::Node n;
   n.x = x;
