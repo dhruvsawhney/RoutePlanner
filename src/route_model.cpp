@@ -28,6 +28,21 @@ void RouteModel::CreateNodeToRoadHashmap() {
   return;
 }
 
-RouteModel::Node* RouteModel::Node::FindNeighbor(std::vector<int> node_indices){
-  return nullptr;
+RouteModel::Node const* RouteModel::Node::FindNeighbor(std::vector<int> node_indices){
+  //return nullptr;
+
+  RouteModel::Node const* bestNode = nullptr;
+  float bestDist = std::numeric_limits<float>::max();
+
+  for(int index: node_indices){
+    Node n = parent_model->SNodes()[index];
+    float dist = RouteModel::Node::distance(n);
+    if(!n.visited && dist != 0.0){
+      if(dist < bestDist){
+        bestDist = dist;
+        bestNode = &parent_model->SNodes()[index]; 
+      }
+    }
+  }
+  return bestNode;
 }
