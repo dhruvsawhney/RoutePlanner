@@ -38,11 +38,11 @@ class RouteModel : public Model {
     auto &SNodes() const noexcept {
       return m_Nodes;
     }
-
+    auto &GetNodeToRoadMap() { return node_to_road; }
   private:
     // Add private RouteModel variables and methods here.
     std::vector<Node> m_Nodes;
-    unordered_map<int, const Model::Road *> node_to_road;
+    std::unordered_map<int, std::vector<const Model::Road *>> node_to_road;
   
   	void CreateNodeToRoadHashmap();
 };
