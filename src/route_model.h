@@ -30,6 +30,8 @@ class RouteModel : public Model {
         // Add private Node variables and methods here.
         int index;
         RouteModel * parent_model = nullptr;
+
+        Node* FindNeighbor(std::vector<int> node_indices);
     };
     
     // Add public RouteModel variables and methods here.
