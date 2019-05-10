@@ -23,6 +23,8 @@ class RoutePlanner {
     RouteModel::Node* start_node;
 	  RouteModel::Node* end_node;
   	float distance;
+
+    float CalculateHValue(const RouteModel::Node* node);
 };
 
 #endif

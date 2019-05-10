@@ -31,7 +31,7 @@ class RouteModel : public Model {
         int index;
         RouteModel * parent_model = nullptr;
 
-        Node const * FindNeighbor(std::vector<int> node_indices);
+        const Node* FindNeighbors(std::vector<int> node_indices);
     };
     
     // Add public RouteModel variables and methods here.

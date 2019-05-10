@@ -28,7 +28,7 @@ void RouteModel::CreateNodeToRoadHashmap() {
   return;
 }
 
-RouteModel::Node const* RouteModel::Node::FindNeighbor(std::vector<int> node_indices){
+const RouteModel::Node* RouteModel::Node::FindNeighbors(std::vector<int> node_indices){
   //return nullptr;
 
   RouteModel::Node const* bestNode = nullptr;
