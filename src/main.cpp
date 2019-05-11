@@ -9,6 +9,7 @@
 #include "route_planner.h"
 
 using namespace std::experimental;
+using std::string;
 
 static std::optional<std::vector<std::byte>> ReadFile(const std::string &path)
 {   
@@ -28,8 +29,8 @@ static std::optional<std::vector<std::byte>> ReadFile(const std::string &path)
 }
 
 
-void checkInput(float& value, string& s){
-
+void checkInput(float& value, string s){
+    std::cout << "HERE" << std::endl;
     while(value < 0.0 || value > 100){
         std::cout << "Enter " << s << " :" << std::endl;
         std::cin >> value;
@@ -62,18 +63,27 @@ int main(int argc, const char **argv)
     // TODO: Declare floats `start_x`, `start_y`, `end_x`, and `end_y` and get
     // user input for these values using std::cin. Pass the user input to the
     // RoutePlanner object below.
-    float start_x, start_y, end_x, end_y = -1.0;
+    float start_x, start_y, end_x, end_y;
 
-    checkInput(start_x, "start_x");
-    checkInput(end_x, "end_x");
-    checkInput(start_y, "start_y");
-    checkInput(end_y, "end_y");
+    std::cout << "Map beings at (0,0) in the lower left and ends at (100,100) in upper right" << std::endl;
+
+    std::cout << "Enter a start x between 0 and 100: ";
+    std::cin >> start_x;
+
+    std::cout << "Enter a start y between 0 and 100: ";
+    std::cin >> start_y;
+
+    std::cout << "Enter a end x between 0 and 100: ";
+    std::cin >> end_x;
+
+    std::cout << "Enter a end y between 0 and 100: ";
+    std::cin >> end_y;
     
     // Build Model.
     RouteModel model{osm_data};
 
     // Perform search and render results.
-    RoutePlanner route_planner{model, 10, 10, 90, 90};
+    RoutePlanner route_planner{model, start_x, start_y, end_x, end_y};
     route_planner.AStarSearch();
     float distance = route_planner.GetDistance();
 
