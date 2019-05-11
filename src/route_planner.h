@@ -27,6 +27,7 @@ class RoutePlanner {
     RouteModel::Node* NextNode();
 
     float CalculateHValue(const RouteModel::Node* node);
+    void AddNeighbors(RouteModel::Node* node);
 };
 
 #endif
