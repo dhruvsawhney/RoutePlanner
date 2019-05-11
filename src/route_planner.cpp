@@ -25,9 +25,7 @@ std::vector<RouteModel::Node> RoutePlanner::ConstructFinalPath(RouteModel::Node*
 }
 
 void RoutePlanner::AStarSearch() {
-	//start_node = end_node->parent;
-	//m_Model.path = ConstructFinalPath(end_node);
-	start_node->visited  = true;
+	start_node->visited = true;
 	open_list.push_back(start_node);
 
 	RouteModel::Node* current_node = nullptr;
