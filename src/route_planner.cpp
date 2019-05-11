@@ -25,8 +25,22 @@ std::vector<RouteModel::Node> RoutePlanner::ConstructFinalPath(RouteModel::Node*
 }
 
 void RoutePlanner::AStarSearch() {
-	start_node = end_node->parent;
-	m_Model.path = ConstructFinalPath(end_node);
+	//start_node = end_node->parent;
+	//m_Model.path = ConstructFinalPath(end_node);
+	start_node->visited  = true;
+	open_list.push_back(start_node);
+
+	RouteModel::Node* current_node = nullptr;
+
+	while(!open_list.empty()){
+		current_node = NextNode();
+
+		if (current_node->distance(*end_node) == 0.0) {
+			m_Model.path = ConstructFinalPath(current_node);
+			return;
+		}
+		AddNeighbors(current_node);
+	}
 }
 
 float RoutePlanner::CalculateHValue(const RouteModel::Node* node) {
