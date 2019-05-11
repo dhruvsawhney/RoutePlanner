@@ -44,14 +44,14 @@ RouteModel::Node* RoutePlanner::NextNode() {
 	open_list.erase(open_list.begin());
 	
 	return node;
+
 }
 
 void RoutePlanner::AddNeighbors(RouteModel::Node* node){
 	node->FindNeighbors();
 
 	for(auto neighbor: node->neighbors){
-		//neighbor->parent = current_node;
-		//neighbor->g_value = current_node->g_value + current_node->distance(*neighbor);
+		
 		neighbor->parent = node;
 		neighbor->g_value = node->g_value + node->distance(*neighbor);
 		neighbor->h_value = CalculateHValue(node);
@@ -59,4 +59,5 @@ void RoutePlanner::AddNeighbors(RouteModel::Node* node){
 		
 		this->open_list.push_back(neighbor);
 	}
+
 }
