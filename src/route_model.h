@@ -25,13 +25,13 @@ class RouteModel : public Model {
         float distance(Node n) const {
           return std::sqrt(std::pow(x-n.x, 2.0)+ std::pow(y-n.y, 2.0));
         }
-      
+      void FindNeighbors();
       private:
         // Add private Node variables and methods here.
         int index;
         RouteModel * parent_model = nullptr;
 
-        const Node* FindNeighbors(std::vector<int> node_indices);
+        Node* FindNeighbor(std::vector<int> node_indices);
     };
     
     // Add public RouteModel variables and methods here.
