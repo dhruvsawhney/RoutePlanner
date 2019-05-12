@@ -56,7 +56,6 @@ RouteModel::Node* RoutePlanner::NextNode() {
 	open_list.erase(open_list.begin());
 	
 	return node;
-
 }
 
 void RoutePlanner::AddNeighbors(RouteModel::Node* node){
@@ -71,5 +70,4 @@ void RoutePlanner::AddNeighbors(RouteModel::Node* node){
 		
 		this->open_list.push_back(neighbor);
 	}
-
 }

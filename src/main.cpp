@@ -28,15 +28,6 @@ static std::optional<std::vector<std::byte>> ReadFile(const std::string &path)
     return std::move(contents);
 }
 
-
-void checkInput(float& value, string s){
-    std::cout << "HERE" << std::endl;
-    while(value < 0.0 || value > 100){
-        std::cout << "Enter " << s << " :" << std::endl;
-        std::cin >> value;
-    }
-}
-
 int main(int argc, const char **argv)
 {    
     std::string osm_data_file = "";
@@ -60,9 +51,6 @@ int main(int argc, const char **argv)
             osm_data = std::move(*data);
     }
     
-    // TODO: Declare floats `start_x`, `start_y`, `end_x`, and `end_y` and get
-    // user input for these values using std::cin. Pass the user input to the
-    // RoutePlanner object below.
     float start_x, start_y, end_x, end_y;
 
     std::cout << "Map beings at (0,0) in the lower left and ends at (100,100) in upper right" << std::endl;

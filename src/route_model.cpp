@@ -79,6 +79,5 @@ void RouteModel::Node::FindNeighbors() {
     if (n) {
       this->neighbors.push_back(n);
     }
-    
   }
 }
