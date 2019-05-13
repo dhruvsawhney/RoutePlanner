@@ -12,15 +12,18 @@ RoutePlanner::RoutePlanner(RouteModel &model, float start_x, float start_y, floa
 
 std::vector<RouteModel::Node> RoutePlanner::ConstructFinalPath(RouteModel::Node* current_node) {
 
+	distance = 0.0f;
 	std::vector<RouteModel::Node> path;
 
-	while(current_node != nullptr){
+	while(current_node->parent != nullptr){
 		path.push_back(*current_node);
 
-		this->distance += current_node->distance(*(current_node->parent));
+		distance += current_node->distance(*(current_node->parent));
 		current_node = current_node->parent;
 	}
-	m_Model.MetricScale();
+	
+	path.push_back(*current_node);
+	distance *= m_Model.MetricScale();
 	return path;
 }
 
