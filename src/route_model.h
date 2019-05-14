@@ -31,7 +31,7 @@ class RouteModel : public Model {
 
       private:
         int index;
-        RouteModel * parent_model = nullptr;
+        RouteModel* parent_model = nullptr;
 
         Node* FindNeighbor(std::vector<int> node_indices);
     };
