@@ -58,6 +58,7 @@ void RoutePlanner::AddNeighbors(RouteModel::Node* node){
 }
 
 void RoutePlanner::AStarSearch() {
+	/**
 	start_node->visited = true;
 	open_list.push_back(start_node);
 
@@ -72,4 +73,8 @@ void RoutePlanner::AStarSearch() {
 		}
 		AddNeighbors(current_node);
 	}
+	**/
+	end_node->parent = start_node;
+	m_Model.path = ConstructFinalPath(end_node);
+	return;
 }
