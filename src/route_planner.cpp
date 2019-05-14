@@ -34,7 +34,7 @@ float RoutePlanner::CalculateHValue(const RouteModel::Node* node) {
 RouteModel::Node* RoutePlanner::NextNode() {
 
 	std::sort(open_list.begin(), open_list.end(), [](const auto& a, const auto& b){
-		return a->h_value + b->g_value < a->h_value + b->g_value; 
+		return (a->h_value + a->g_value) < (b->h_value + b->g_value); 
 	}); 
 
 	RouteModel::Node* node = open_list.front();
