@@ -50,7 +50,7 @@ void RoutePlanner::AddNeighbors(RouteModel::Node* node){
 		
 		neighbor->parent = node;
 		neighbor->g_value = node->g_value + node->distance(*neighbor);
-		neighbor->h_value = CalculateHValue(node);
+		neighbor->h_value = CalculateHValue(neighbor);
 		neighbor->visited = true;
 		
 		open_list.push_back(neighbor);
