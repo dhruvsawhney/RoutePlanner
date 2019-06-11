@@ -1,17 +1,7 @@
 # Route Planning Project Starter Code
 
-A route finding program that leverages OpenStreetMap data to find an optimal path between two points via roadways. A star search is used for the route finding algorithm.
+A route finding program that leverages OpenStreetMap data to find an optimal path between two points via roadways. A-star-search is used for the route finding algorithm.
 
-## Cloning
-
-When cloning this project, be sure to use the `--recurse-submodules` flag. Using HTTPS:
-```
-git clone https://github.com/udacity/CppND-Route-Planning-Project.git --recurse-submodules
-```
-or with SSH:
-```
-git clone git@github.com:udacity/CppND-Route-Planning-Project.git --recurse-submodules
-```
 
 ## Compiling and Running
 
